@@ -1,11 +1,13 @@
-# Static Tools for Turbo Field Team
+# Linux Tools for the Turbonomic Field Team
 
-This provides a number of standard Linux tools that may be useful to the Turbonomic field team. They are build as stand-alone "static" binaries so there are no dependencies.
+This project aims to provide a number of standard Linux add-on tools that may be useful to the Turbonomic field team in an "easy-to-install" format.
+
+The tools are provided with NO SUPPORT WHAT SO EVER and are unmodified versions of the tools available via their own websites. The licenses are those that apply to the tools themselves. The build files (Makefiles, Dockerfiles etc) in this repository are licenced under the GNU General Public License v3.0
 
 The current release includes:
 
-- screen (allows an interactive shell session to survive SSH disconnects)
-- nano (a simple text editor)
+- `screen` (allows an interactive shell session to survive SSH disconnects)
+- `nano` (a simple text editor - much easier to use than `vi`)
 
 The makefiles for this distribution can be found on github at
 
@@ -26,5 +28,4 @@ Man pages are available on line for these tools.
 | ---- | ------------------ |
 | screen | http://manpages.org/screen |
 | nano | https://www.nano-editor.org/docs.php |
-
 
