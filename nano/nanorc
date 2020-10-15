@@ -1,0 +1,7 @@
+set tabstospaces
+set unix
+set tabsize 2
+set linenumbers
+set autoindent
+set numbercolor cyan
+set functioncolor yellow
