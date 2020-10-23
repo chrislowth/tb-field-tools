@@ -86,6 +86,7 @@ function doit() {
         OUT_DIR=${OUTPUT_DIR}/`uname | tr 'A-Z' 'a-z'`/`uname -m`
         mkdir -p $OUT_DIR
         cp ${BUILD_DIR}/nano-${NANO_VERSION}/src/nano $OUT_DIR/
+        cp ${BUILD_DIR}/nano-${NANO_VERSION}/COPYING $OUT_DIR/
         echo "** Finished **"
     else
         echo "** ${OUTPUT_DIR} does not exist **"

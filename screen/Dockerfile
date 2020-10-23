@@ -8,10 +8,11 @@ RUN apt update -yy && \
 	mkdir /build && \
 	cd /build && \
 	curl -O https://ftp.gnu.org/gnu/screen/screen-${SCREEN_VERSION}.tar.gz && \
-	tar xfz screen-${SCREEN_VERSION}.tar.gz && \
+	tar xvfz screen-${SCREEN_VERSION}.tar.gz && \
 	cd screen-${SCREEN_VERSION} && \
 	./configure && \
 	make LDFLAGS="-static" LIBS="-ltinfo -lcrypt" && \
-	cp screen /build && \
+	cp -vp screen /build && \
+	cp -vp COPYING /build && \
 	cd /build && \
 	rm -rfv screen-${SCREEN_VERSION}

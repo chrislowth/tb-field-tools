@@ -10,9 +10,10 @@ nano: Makefile Dockerfile build.sh
 	mkdir -p output
 	docker run -v `pwd`/output:/output --name tbnano tbnano
 	cp output/linux/x86_64/nano .
+	cp output/linux/x86_64/COPYING .
 	sudo rm -r output
 
 clean:
-	sudo rm -rfv nano output *.tar.gz || :
+	sudo rm -rfv nano output *.tar.gz *.tar.xz COPYING || :
 	docker container rm tbnano || :
 	docker image rm tbnano || :
