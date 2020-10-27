@@ -16,5 +16,10 @@ yq/yq
 yq/gopath
 yq/LICENSE
 
+jq/jq
+jq/COPYING
+jq/jq-1.6.tar.gz
+jq/jq-1.6
+
 dist.d
 tbstatic.tgz

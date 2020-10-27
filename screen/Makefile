@@ -7,6 +7,7 @@ screen: Makefile Dockerfile
 	cp output/screen screen
 	cp output/COPYING COPYING
 	sudo rm -r output
+	strip screen
 
 clean:
 	rm -f screen out COPYING

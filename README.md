@@ -9,6 +9,7 @@ The current release includes:
 - `screen` (allows an interactive shell session to survive SSH disconnects)
 - `nano` (a simple text editor - much easier to use than `vi`)
 - `k9s` (a text UI alternative to many of kubectl's features)
+- `jq` (a JSON parser for the linux command line)
 - `yq` (a lightweight and portable command-line YAML processor)
 
 The makefiles for this distribution can be found on github at https://github.com/chrislowth/tb-field-tools .
@@ -30,6 +31,6 @@ Man pages are available on line for these tools.
 | ---- | ------------------ |
 | screen | http://manpages.org/screen |
 | nano | https://www.nano-editor.org/docs.php |
+| jq   | https://stedolan.github.io/jq/manual/v1.6/ |
 | k9s  | https://k9scli.io/ |
 | yq   | https://mikefarah.gitbook.io/yq/ |
-
