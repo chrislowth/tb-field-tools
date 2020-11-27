@@ -1,11 +1,14 @@
 LICDIR = dist.d/licenses
 BINDIR = dist.d/bin
+S3FOLDER = turbonomic-emea-cs-bucket/tb-field-tools
+TARFILE = tb-field-tools.tgz
 
-tbstatic.tgz: k9s/k9s screen/screen nano/nano yq/yq jq/jq
+$(TARFILE): k9s/k9s screen/screen nano/nano yq/yq jq/jq timescaledb/ready
 	rm -rf dist.d
 	mkdir -p $(BINDIR) $(LICDIR)
-	cp k9s/k9s screen/screen nano/nano yq/yq jq/jq $(BINDIR)
-	cd $(BINDIR) && upx *
+	cp k9s/k9s screen/screen nano/nano yq/yq yq/*.sh jq/jq $(BINDIR)
+	chmod +x $(BINDIR)/*.sh
+	cd $(BINDIR) && upx k9s screen nano yq jq
 	cp yq/LICENSE $(LICDIR)/LICENSE-yq
 	cp jq/COPYING $(LICDIR)/COPYING-jq
 	cp k9s/LICENSE $(LICDIR)/LICENSE-k9s
@@ -13,7 +16,8 @@ tbstatic.tgz: k9s/k9s screen/screen nano/nano yq/yq jq/jq
 	cp nano/COPYING $(LICDIR)/COPYING-nano
 	cp screen/screenrc dist.d/.screenrc
 	cp nano/nanorc dist.d/.nanorc
-	cd dist.d && tar cvfz ../tbstatic.tgz bin/* licenses/* .nanorc .screenrc
+	cd timescaledb/t8c-install/bin && cp -p install_timescaledb.sh configure_timescaledb.sh switch_dbs_mount_point.sh ../../../$(BINDIR)/
+	cd dist.d && tar cvfz ../$(TARFILE) bin/* licenses/* .nanorc .screenrc
 
 k9s/k9s:
 	cd k9s && make
@@ -30,11 +34,18 @@ yq/yq:
 jq/jq:
 	cd jq && make
 
+timescaledb/ready:
+	cd timescaledb && make
+
 clean:
 	cd screen && make clean
 	cd nano && make clean
 	cd yq && make clean
 	cd jq && make clean
 	cd k9s && make clean
+	cd timescaledb && make clean
 	rm -rf dist.d
-	rm -f tbstatic.tgz
+	rm -f $(TARFILE)
+
+copy-to-s3:
+	aws s3 cp $(TARFILE) "s3://$(S3FOLDER)/$(TARFILE)" --acl public-read
