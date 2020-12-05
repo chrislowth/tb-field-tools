@@ -3,12 +3,12 @@ BINDIR = dist.d/bin
 S3FOLDER = turbonomic-emea-cs-bucket/tb-field-tools
 TARFILE = tb-field-tools.tgz
 
-$(TARFILE): k9s/k9s screen/screen nano/nano yq/yq jq/jq timescaledb/ready reporting/*.sh
+$(TARFILE): k9s/k9s screen/screen nano/nano yq/yq jq/jq timescaledb/ready reporting/*.sh Makefile
 	rm -rf dist.d
 	mkdir -p $(BINDIR) $(LICDIR)
 	cp k9s/k9s screen/screen nano/nano yq/yq reporting/*.sh jq/jq $(BINDIR)
 	chmod +x $(BINDIR)/*.sh
-	cd $(BINDIR) && upx k9s screen nano yq jq
+	# cd $(BINDIR) && upx k9s screen nano yq jq
 	cp yq/LICENSE $(LICDIR)/LICENSE-yq
 	cp jq/COPYING $(LICDIR)/COPYING-jq
 	cp k9s/LICENSE $(LICDIR)/LICENSE-k9s
