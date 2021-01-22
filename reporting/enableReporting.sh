@@ -97,9 +97,6 @@ cat <<-END > /tmp/$$.yq
   path: spec.grafana.enabled
   value: true
 - command: update
-  path: spec.reporting.enabled
-  value: true
-- command: update
   path: spec.properties.extractor.grafanaAdminPassword
   value: "$adminPass"
 - command: update
