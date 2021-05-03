@@ -19,7 +19,7 @@ The makefiles for this distribution can be found on github at https://github.com
 
 ## Installation.
 
-1. Download the tar file "tb-field-tools.tgz" and copy it into the /tmp directory of your Turbonomic instance. You can get it from the url https://turbonomic-emea-cs-bucket.s3.eu-west-2.amazonaws.com/tb-field-tools/tb-field-tools.tgz .
+1. Download the tar file "tb-field-tools.tgz" and copy it into the /tmp directory of your Turbonomic instance. You can get it from the url https://github.com/chrislowth/tb-field-tools/releases/download/1.0/tb-field-tools.tgz .
 2. Log in to your Turbonomic instance using SSH. For XL, you would normally log in as "turbo". For classic, you would normally use "root".
 3. IMPORTANT: Make sure your working directory is the user's HOME directory before un-zipping the tarball. You can make this so by typing the command "`cd`" with no arguments.
 4. Un-zip the tarball using the command: `tar xvfz --no-same-owner /tmp/tb-field-tools.tgz`
