@@ -3,12 +3,10 @@ BINDIR = dist.d/bin
 S3FOLDER = turbonomic-emea-cs-bucket/tb-field-tools
 TARFILE = tb-field-tools.tgz
 
-$(TARFILE): k9s/k9s screen/screen nano/nano yq/yq jq/jq timescaledb/ready reporting/*.sh Makefile
+$(TARFILE): k9s/k9s screen/screen nano/nano yq/yq jq/jq timescaledb/ready Makefile
 	rm -rf dist.d
 	mkdir -p $(BINDIR) $(LICDIR)
-	cp k9s/k9s screen/screen nano/nano yq/yq reporting/*.sh jq/jq $(BINDIR)
-	chmod +x $(BINDIR)/*.sh
-	# cd $(BINDIR) && upx k9s screen nano yq jq
+	cp k9s/k9s screen/screen nano/nano yq/yq jq/jq $(BINDIR)
 	cp yq/LICENSE $(LICDIR)/LICENSE-yq
 	cp jq/COPYING $(LICDIR)/COPYING-jq
 	cp k9s/LICENSE $(LICDIR)/LICENSE-k9s
@@ -17,7 +15,6 @@ $(TARFILE): k9s/k9s screen/screen nano/nano yq/yq jq/jq timescaledb/ready report
 	cp reporting/LICENSE $(LICDIR)/LICENSE-enableReporting
 	cp screen/screenrc dist.d/.screenrc
 	cp nano/nanorc dist.d/.nanorc
-	cd timescaledb/t8c-install/bin && cp -p install_timescaledb.sh configure_timescaledb.sh switch_dbs_mount_point.sh ../../../$(BINDIR)/
 	cd dist.d && tar cvfz ../$(TARFILE) bin/* licenses/* .nanorc .screenrc
 
 k9s/k9s:
