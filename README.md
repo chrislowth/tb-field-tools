@@ -6,10 +6,11 @@ The tools are provided with NO SUPPORT WHAT SO EVER and are unmodified versions 
 
 The current release includes:
 
-- `screen` (allows an interactive shell session to survive SSH disconnects)
-- `nano` (a simple text editor - much easier to use than `vi`)
-- `k9s` (a text UI alternative to many of kubectl's features)
+- `htop` (an enhanced version of "top")
 - `jq` (a JSON parser for the linux command line)
+- `k9s` (a text UI alternative to many of kubectl's features)
+- `nano` (a simple text editor - much easier to use than `vi`)
+- `screen` (allows an interactive shell session to survive SSH disconnects)
 - `yq` (a lightweight and portable command-line YAML processor)
 
 The makefiles for this distribution can be found on github at https://github.com/chrislowth/tb-field-tools .
@@ -30,6 +31,7 @@ Man pages are available on line for these tools.
 
 | Tool | Documentation page |
 | ---- | ------------------ |
+| htop | http://htop.dev/ |
 | screen | http://manpages.org/screen |
 | nano | https://www.nano-editor.org/docs.php |
 | jq   | https://stedolan.github.io/jq/manual/v1.6/ |
